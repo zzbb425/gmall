@@ -1,9 +1,6 @@
 package com.java416.gmall.service;
 
-import com.java416.gmall.bean.BaseAttrInfo;
-import com.java416.gmall.bean.BaseCatalog1;
-import com.java416.gmall.bean.BaseCatalog2;
-import com.java416.gmall.bean.BaseCatalog3;
+import com.java416.gmall.bean.*;
 
 import java.util.List;
 
@@ -21,5 +18,41 @@ public interface ManageService {
      * @param baseAttrInfo
      */
     void saveAttrInfo(BaseAttrInfo baseAttrInfo);
+
+    BaseAttrInfo getAttrValueList(String attrId);
+
+    List<SpuInfo> getSpuInfoList(SpuInfo spuInfo);
+
+    /**
+     * 查询所有的销售属性数据
+     * @return
+     */
+    List<BaseSaleAttr> getBaseSaleAttrList();
+
+    /**
+     * 保存spuInfo
+     * @param spuInfo
+     */
+    void saveSpuInfo(SpuInfo spuInfo);
+
+    /**
+     * 根据spuId 查询spuImage
+     * @param spuId
+     * @return
+     */
+    List<SpuImage> getSpuImageList(String spuId);
+
+    /**
+     * 根据spuId查询销售属性集合
+     * @param spuId
+     * @return
+     */
+    List<SpuSaleAttr> getSpuSaleAttrList(String spuId);
+
+    /**
+     *  保存商品数据
+     * @param skuInfo
+     */
+    void saveSkuInfo(SkuInfo skuInfo);
 
 }

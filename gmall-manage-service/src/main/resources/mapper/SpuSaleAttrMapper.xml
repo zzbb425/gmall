@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--接口的全路径-->
+<mapper namespace="com.atguigu.gmall0901.manage.mapper.SpuSaleAttrMapper">
+    <resultMap id="spuSaleAttrMap" type="com.atguigu.gmall0901.bean.SpuSaleAttr" autoMapping="true">
+        <id  property="id" column="id"></id>
+        <collection property="spuSaleAttrValueList" ofType="com.atguigu.gmall0901.bean.SpuSaleAttrValue" autoMapping="true">
+            <id property="id" column="sale_attr_value_id"></id>
+        </collection>
+    </resultMap>
+    <!--根据spuId查询销售属性集合-->
+    <select id="selectSpuSaleAttrList" resultMap="spuSaleAttrMap">
+        select sa.id ,sa.spu_id, sa.sale_attr_name,sa.sale_attr_id,
+        sv.id sale_attr_value_id,
+        sv.sale_attr_value_name
+        from spu_sale_attr sa inner join spu_sale_attr_value  sv
+        on  sa.spu_id=sv.spu_id and sa.sale_attr_id=sv.sale_attr_id
+        where  sa.spu_id=#{spu_id}
+    </select>
+    <!--sql 语句能执行过去！但是，有返回值！select 无返回值！-->
+    <!--<select id="">-->
+        <!--INSERT INTO test VALUE (1,'name','男');-->
+    <!--</select>-->
+    <!--是否可行？-->
+    <!--<update id="">-->
+        <!--INSERT INTO test VALUE (1,'name','男');-->
+    <!--</update>-->
+</mapper>

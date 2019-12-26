@@ -56,4 +56,12 @@ public class ManageController {
     public void saveAttrInfo(BaseAttrInfo baseAttrInfo){
         manageService.saveAttrInfo(baseAttrInfo);
     }
+
+    @RequestMapping("getAttrValueList")
+    @ResponseBody
+    public List<BaseAttrValue> getAttrValueList(String attrId){
+        BaseAttrInfo baseAttrInfo = manageService.getAttrValueList(attrId);
+        // 返回该对象的attrValueList
+        return baseAttrInfo.getAttrValueList();
+    }
 }

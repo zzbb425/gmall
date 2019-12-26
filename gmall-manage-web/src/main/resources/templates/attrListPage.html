@@ -18,7 +18,7 @@
 <div id="tb" style="padding:5px;height:auto">
     <div style="margin-bottom:5px">
         <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="addAttrInfo()">添加</a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true">编辑</a>
+        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editAttrInfo()">编辑</a>
         <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true">删除</a>
     </div>
     <div>
@@ -157,6 +157,30 @@
         }else {
             return true;
         }
+    }
+    
+    
+    function editAttrInfo() {
+        if (!checkBeforeDialog()){
+            // 友好提示
+            $.messager.alert('警告','需要选择三级分类Id');
+            return ;
+        }
+        // 打开模态框
+        $("#dlg").dialog('open');
+        // 1.将平台属性名称回显到页面 value = 选中的属性名称
+        //  获取选中的行！
+        var attrInfoRow = $("#dg").datagrid('getSelected');
+        // 将选中的属性名称赋值
+        $("#attrName").textbox('setValue',attrInfoRow.attrName);
+        // baseAttrValue.attrId
+        $("#attrId").val(attrInfoRow.id);
+
+        // 2.将平台属性值列加载到dg_av上 通过attrId 取查询 baseAttrValue 中的数据 在dg_av上添加url?attrId=?
+        $('#dg_av').datagrid({url:'getAttrValueList?attrId='+attrInfoRow.id});
+
+        // 3.初始化数据表格
+        initAttrValueDatagrid();
     }
 
     /*]]>*/

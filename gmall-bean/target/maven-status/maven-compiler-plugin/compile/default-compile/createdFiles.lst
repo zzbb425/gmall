@@ -1,6 +1,15 @@
 com\java416\gmall\bean\BaseCatalog3.class
-com\java416\gmall\bean\UmsMemberReceiveAddress.class
-com\java416\gmall\bean\BaseAttrInfo.class
+com\java416\gmall\bean\BaseSaleAttr.class
 com\java416\gmall\bean\BaseCatalog2.class
+com\java416\gmall\bean\SkuInfo.class
+com\java416\gmall\bean\SpuImage.class
 com\java416\gmall\bean\BaseAttrValue.class
 com\java416\gmall\bean\BaseCatalog1.class
+com\java416\gmall\bean\SpuInfo.class
+com\java416\gmall\bean\UmsMemberReceiveAddress.class
+com\java416\gmall\bean\BaseAttrInfo.class
+com\java416\gmall\bean\SpuSaleAttr.class
+com\java416\gmall\bean\SkuSaleAttrValue.class
+com\java416\gmall\bean\SpuSaleAttrValue.class
+com\java416\gmall\bean\SkuImage.class
+com\java416\gmall\bean\SkuAttrValue.class
